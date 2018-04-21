@@ -459,10 +459,10 @@
                         tooltip: "Currently in Gold III on the Korean server"
                     },
                     {
-                        name: "Optimizing Workflow",
+                        name: "Reading books",
                         color: '#FA8CB0',
                         proficiency: 3,
-                        tooltip: "I am a huge fan of efficiency."
+                        tooltip: "I like reading books ~~"
                     }
                 ]
             }
