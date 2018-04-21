@@ -1,0 +1,431 @@
+/**
+  * Import css stylesheets
+  * ========================
+  */
+@import "carousel.css";
+@import "header.css";
+@import "portfolio.css";
+@import "modal.css";
+@import "skills.css";
+@import "contact.css";
+
+/**
+ * Global Styles
+ * ============================
+ */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: #dde2e3;
+    font-size: 14px;
+    font-family: "Lucida Sans", "sans-serif";
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+code {
+    background-color: #f1f2f3;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+section.about {
+    padding-top: 60px;
+}
+
+/* Target the odd ones */
+section {
+   /* background-color: #a9b7c0;
+    color: #fff;*/
+    border-top: 1px solid #fff;
+    padding-bottom: 20px;
+    margin: 30px auto;
+    position: relative;
+}
+
+section:after {
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    content: "";
+    height: 20px;
+    left: 49%;
+    top: -10px;
+    position: absolute;
+    width: 20px;
+}
+
+section#skills {
+    background-color: #fff;
+    padding: 30px;
+}
+
+/**
+  * Utilities
+  * ============================
+  */
+
+.relative-container {
+    position: relative;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-right-50 {
+    margin-right: 50px;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+.line-separator {
+    border-bottom: 4px solid #f0f1f2;
+    margin: 40px 5px;
+    position: relative;
+}
+
+.line-separator:after {
+    background-color: #f0f1f2;
+    border-radius: 50%;
+    border: 1px solid #f0f1f2;
+    content: "";
+    height: 20px;
+    left: 49%;
+    top: -10px;
+    position: absolute;
+    width: 20px;
+}
+
+/* Clearfix */
+.group:after, .row:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+* html .group, * html .row  { zoom: 1; } /* IE6 */
+*:first-child+html .group,  *:first-child+html .row{ zoom: 1; } /* IE7 */
+
+/**
+ * Scrollbar styling for iframe
+ * ==========================
+ */
+/* width */
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    background-clip: content-box;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #a9b7c0 !important;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
+/**
+ * Fluid grid Layout Style
+ * =============================
+ */
+
+.row {
+    margin: 15px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7,
+.col-8, .col-9, .col-10, .col-11, .col-12 {
+    float: left !important;
+}
+
+.col-1 {
+    width: 8.3333333333333%;
+}
+
+.col-2 {
+    width: 16.66666666666667%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33333333333333%;
+}
+
+.col-5 {
+    width: 41.66666666666667%
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33333333333333%;
+}
+
+.col-8 {
+    width: 66.66666666666667%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33333333333333%;
+}
+
+.col-11 {
+    width: 91.66666666666667%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/**
+  * Theme color palette
+  * Refer to: https://www.canva.com/learn/brand-color-palette/
+  * For more information
+  * ===========================
+  */
+
+.grey-blue {
+    background-color: #a9b7c0;
+}
+
+.minty {
+    background-color: #c7d8c6;
+}
+
+.light {
+    background-color: #efd9c1;
+}
+
+.powder {
+    background-color: #cccbc6;
+}
+
+/* Second tier */
+.coral {
+    background-color: #e14658;
+}
+
+.navy {
+    background-color: #3c455c;
+}
+
+.mountain {
+    background-color: #3f3250;
+}
+
+.scrub {
+    background-color: #c0b380;
+}
+
+.white {
+    background-color: #fff;
+    color: #444;
+}
+
+.grey-blue, .minty, .light, .powder {
+    color: #fff;
+}
+
+/**
+ * Text
+ * =================
+ */
+.input {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+
+.input-full-width {
+    width: 100%;
+}
+
+.input-rounded {
+    border-radius: 6px;
+}
+
+/**
+ * Label
+ */
+.label {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+/**
+ * Button
+ * ===================
+ */
+.btn {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: opacity, transform 0.5s ease-in-out;
+}
+
+.btn-no-border {
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.65;
+}
+
+.btn-dark-blue, .btn-dark-blue i {
+    background-color: #003366;
+    color: #fff;
+}
+
+.btn-red, .btn-red i {
+    background-color: #e14658;
+    color: #fff;
+}
+
+.btn, .btn i {
+    transition: all 0.5s ease-in-out;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    position: relative;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.btn-search {
+    border: none;
+}
+
+.btn-search:hover i {
+    color: #efd9c1;
+    transform: scale(1.5);
+}
+
+/**
+  * Section template CSS
+  * ===========================
+  */
+
+.main-contents {
+    text-align: center;
+    margin: 40px;
+    max-width: 1100px;
+}
+
+.contents {
+    max-width: 1100px;
+}
+
+.section-heading {
+    color: #e14658;
+    padding: 15px 0;
+}
+
+.description {
+    font-size: 1.25em;
+    margin: 20px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+/**
+  * Go to top button css
+  * ============================
+  */
+.go-to-top {
+    background-color: #3f3250;
+    border-radius: 50px;
+    bottom: 5%;
+    color: #fff;
+    cursor: pointer;
+    height: 30px;
+    opacity: 0;
+    padding: 5px;
+    position: fixed;
+    right: 3%;
+    transition: opacity 0.4s ease-in;
+    width: 30px;
+}
+
+.go-to-top:hover {
+    opacity: 0.6;
+}
+
+/**
+  * Footer CSS
+  * =================
+  */
+.footer {
+    color: #fff;
+    font-size: 1.3em;
+    padding: 20px;
+}
+
+/**
+ * Media queries
+ * ========================
+ */
+@media screen and (max-width: 960px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7,
+    .col-8, .col-9, .col-10, .col-11, .col-12 {
+        width: 100%;
+    }
+    .description {
+        max-width: none;
+    }
+}
+
+/**
+ * 7" Tablet
+ */
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 480px) {
+    .btn {
+        display: block;
+        margin: 10px;
+    }
+}

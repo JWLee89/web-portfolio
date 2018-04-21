@@ -1,0 +1,36 @@
+.contact-form-container {
+    background-color: #f9f9f9;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 20px;
+}
+
+.contact-form {
+    padding: 20px;
+}
+
+.notification {
+    border: 10px double #f1f2f3;
+    border-radius: 8px;
+    font-size: 1.1em;
+    padding: 12px 20px;
+}
+
+/**
+ * Color for background
+ * ===============================
+ */
+.color-facebook, .color-linkedin, .color-github {
+    color: #fff;
+}
+
+.color-facebook {
+    background-color: #4469AE;
+}
+
+.color-linkedin {
+    background-color: #0F78B1;
+}
+
+.color-github {
+    background-color: #292D31;
+}

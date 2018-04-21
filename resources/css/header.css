@@ -1,0 +1,365 @@
+/**
+ * Header Component
+ * ==================================
+ */
+
+.logo {
+    color: #fff;
+    font-family: "Bodoni MT", "sans-serif";
+    font-size: 1.5em;
+    margin-left: 20px;
+    line-height: 2.5;
+}
+
+.header-wrapper {
+    box-shadow: 1px 3px 7px rgba(0,0,0,0.15);
+    padding: 8px;
+}
+
+.nav-bar {
+    margin: 0 auto;
+}
+
+.nav-search {
+    margin-top: 15px;
+}
+
+.input-search {
+    background: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #f1f2f3;
+    color: #fff;
+    max-width: 180px;
+    width: 130px;
+    transition: all 0.4s ease-in-out;
+    z-index: 3;
+}
+
+.input-search:focus {
+    border:none;
+}
+
+/**
+ * Placeholder text
+ * =====================
+ */
+.floating-placeholder {
+    color: #fff;
+    pointer-events: none;   /* Click through placeholder */
+    position: absolute;
+    left: 5px;
+    top: -2px;
+    transition: all 0.4s ease-in-out;
+   /* transition: all 0.4s ease-in-out 0.4s;*/
+}
+
+.input-search:focus {
+    outline-width: 0; /* Remove default blue outline */
+    border-bottom: 1px solid #f1f2f3;
+    width: 100%;
+}
+
+/* Toggle floating placeholder text     */
+.input-search:focus + .floating-placeholder,
+.input-search:not(:placeholder-shown) + .floating-placeholder  {
+    font-size: 0.8em;
+    top: -25px;
+}
+
+/* Target placeholder */
+.input-search:focus + .btn {
+    transform: rotate(720deg);
+}
+
+.menu-bar {
+    margin: 0;
+    padding-left: 0;
+}
+
+.menu-bar li {
+    background-color: #3c455c;
+    border-top: 3px solid transparent;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 10px 10px 10px 6px;
+    position: relative;
+}
+
+.menu-bar > li:after, .menu-bar > li:after {
+    background-color: #9aacb8;
+    bottom: 0;
+    left: 0;
+    content: '';
+    font-weight: bold;
+    height: 5px;
+    position: absolute;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: width 0.2s ease-in-out 0.2s;
+    width: 0;
+}
+
+/* Animation */
+.menu-bar > li.active:after, .menu-bar > li:hover:after {
+    width: 100%;
+}
+
+.menu-bar li a {
+    color: #fff;
+    font-family: "Rockwell", "sans-serif";
+    padding: 12px 8px;
+    position: relative;
+    text-decoration: none;
+}
+
+.has-sub-menu:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #FFF;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: -10px;
+    top: 18px;
+    width: 0;
+}
+
+/**
+  * Triangle down for those with submenu
+  */
+
+/*ul.sub-menu + a {
+    color: red !important;
+    background: red;
+}*/
+
+.menu-bar li:hover > a {
+    color: #9aacb8;
+}
+
+.menu-bar li:hover > a.has-sub-menu:after {
+    border-top: 5px solid #9aacb8;
+}
+
+.menu-bar li:hover > .sub-menu {
+    display: block;
+}
+
+.menu-bar .sub-menu {
+    display: none;
+}
+
+.menu-bar .sub-menu li {
+    border-bottom: 1px solid #f1f2f3;
+}
+
+.sub-menu {
+    background-color: #fff;
+    display: block;
+    left: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    width: 200px;
+}
+
+.sub-menu li {
+    font-weight:400;
+    display: block;
+}
+
+.section-heading {
+    text-align: center;
+}
+
+/**
+ * Lastly, keep nested sub-menus on the top right hand corner
+ */
+.menu-bar .sub-menu .sub-menu {
+    left: 200px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
+
+/**
+ * Menu bar
+ * ====================
+ */
+input#show-menu {
+    position: absolute;
+    opacity: 0;
+}
+
+.responsive-menubar {
+    cursor: pointer;
+    display: none;
+    left: 0;
+    position: relative;
+    width: 72px;
+    height: 60px;
+}
+
+.responsive-menubar span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 24px;
+    background: #fff;
+    opacity: 1;
+    left: 24px;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+}
+
+.responsive-menubar span:nth-child(1) {
+    top: 20px;
+}
+
+.responsive-menubar span:nth-child(2) {
+    top: 28px;
+}
+
+.responsive-menubar span:nth-child(3) {
+    top: 36px;
+}
+
+.push {
+    transition: transform 0.4s linear;
+}
+
+.nav-bar {
+    transition: left 0.4s linear;
+}
+
+.content-overlay {
+    background-color: rgba(0,0,0, 0.5);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity, transform, z-index 0.5s ease;
+    z-index: -1;
+}
+
+#content {
+    position: relative;
+    transition: width 0.5s ease;
+}
+
+@media screen and (max-width: 960px) {
+    .nav-bar {
+        opacity: 0;
+        height: 0;
+        left: -200px;
+        top: 10px;
+        z-index: 1000;
+    }
+
+    .fixed-top {
+        height: 70px;
+    }
+
+    .responsive-menubar {
+        display: inline-block;
+    }
+
+    /* Check event */
+    input#show-menu:checked ~ .header-wrapper #fix-bar > .push {
+        transform: translate3d(140px, 0, 0);
+    }
+
+    /* Show nav-bar*/
+    input#show-menu:checked ~ .header-wrapper .nav-bar {
+        opacity: 1;
+        left: 0;
+        height: 100%;
+        width: 140px;
+        position: fixed;
+        background-color: #3c455c;
+    }
+
+    input#show-menu:checked ~ .header-wrapper .menu-bar li {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+/**
+ * Mobile
+ * ============================
+ */
+@media screen and (max-width: 360px) {
+
+    /* Check event */
+    input#show-menu:checked ~ .header-wrapper #fix-bar > .push {
+        transform: translate3d(100px, 0, 0);
+    }
+
+    input#show-menu:checked ~ .header-wrapper .nav-bar{
+        background: none;
+    }
+
+    input#show-menu:checked ~ .header-wrapper .nav-bar .menu-bar{
+        width: 50px;
+    }
+
+    /*input#show-menu:checked ~ #content {
+        left: 100px;
+    }*/
+
+    .header-wrapper .nav-bar .menu-bar {
+        background-color: #3c455c;
+        width: 50px;
+        height: 100%;
+    }
+
+    .nav-bar:hover .menu-bar {
+        text-align: left;
+        width: 90px !important;
+    }
+
+    .nav-bar:hover .menu-bar li span {
+        position: relative;
+        display: block;
+        left: 0;
+    }
+
+    .menu-bar li {
+        border-top: none;
+        height: 45px;
+        padding: 0;
+    }
+
+    .menu-bar li a {
+        position: relative;
+    }
+
+    .menu-bar li span {
+        transition: left 0.2s ease-in;
+    }
+
+    .menu-bar li span {
+        position: absolute;
+        left: -200px;
+    }
+
+    .menu-bar > li:after, .menu-bar > li:after {
+        height: 0;
+    }
+
+    .menu-bar li.active > * {
+        color: #9aacb8;
+    }
+}

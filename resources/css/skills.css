@@ -1,0 +1,204 @@
+/**
+ * CSS Stylesheet for the skills section
+ * ==============================================
+ */
+.skills-section {
+
+}
+
+/**
+ * Horizontal Bar Component
+ * ================================
+ */
+.bar {
+    position: relative;
+    display: inline-block;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.bar-inner {
+    position: absolute;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 8px;
+}
+
+.bar-horizontal {
+    height: 40px;
+}
+
+.bar-red {
+    background-color: #fb5e5D;
+}
+
+.bar-blue {
+    background-color: #4a6feb;
+}
+
+/**
+  * chart-y-axis-label
+  * ===========================================
+  */
+.y-axis > .chart-y-axis-label:last-child {
+    border-bottom: 2px solid #f1f2f3;
+    margin-top: 1px;
+}
+
+.chart-header {
+    margin: 45px;
+}
+
+.chart-container {
+    position: relative;
+    height: 350px;
+}
+
+.x-axis-line {
+    background-color: #f1f2f3;
+    height: 2px;
+    left: 0;
+    max-width: 350px;
+    width: 100%;
+}
+
+.y-axis {
+    height: 100%;
+    vertical-align: top;
+    width: 100px;
+}
+
+.x-axis {
+    height: 250px;
+    margin-left: -5px;
+    margin-top: -0.8px;
+}
+
+.y-axis, .x-axis, .x-axis-bar {
+    display: inline-block;
+}
+
+.x-axis-bar-outer {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    margin: 0 10px;
+    width: 30px;
+}
+
+.x-axis-bar {
+    bottom: 0;
+    display: block;
+    position: absolute;
+    transition: transform 0.4s ease;
+    width: 100%;
+}
+
+.x-axis-bar:hover {
+    transform: scale(1.05);
+    z-index:1000;
+}
+
+/* Transition for toolitp */
+.chart-tooltip {
+    bottom: 100%;
+    color: #fff;
+    left: 50%;
+    margin-bottom: 15px;
+    margin-left: -125px;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    visibility: hidden;
+    width: 250px;
+    z-index: 9999;
+}
+
+/* Arrow-left */
+.chart-tooltip.arrow-bottom:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    border-top-color: #3c455c;
+}
+
+.x-axis-bar:hover .chart-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.x-axis-label {
+    position: absolute;
+    bottom: -55px;
+    left: -8px;
+    display: inline-block;
+    font-size: 0.9em;
+    text-align: left;
+    text-overflow: unset;
+    transform: rotate(75deg);
+    width: 60px;
+}
+
+@media screen and (max-width: 960px) {
+    .chart-container {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .chart-container {
+        padding: 0;
+    }
+    section#skills {
+        padding: 30px 10px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .chart-container {
+        text-align: left;
+    }
+    .chart-tooltip {
+        margin-left: -75px;
+        width: 150px;
+        font-size: 0.8em;
+    }
+    .chart-y-axis-label, .y-axis {
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .x-axis-bar {
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .x-axis {
+        text-align: right;
+    }
+
+    .x-axis {
+        width: 165px;
+    }
+
+    .x-axis-label {
+        left: -10px;
+        font-size: 0.8em;
+    }
+
+    .x-axis-bar-outer {
+        margin: 0;
+    }
+
+    .x-axis-bar {
+        margin: 0 5px;
+        width: 15px;
+    }
+}

@@ -1,0 +1,344 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay's Front-end Portfolio</title>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/portfolio.css">
+    <link rel="stylesheet" href="resources/css/skills.css">
+    <link rel="stylesheet" href="resources/css/contact.css">
+</head>
+<body>
+<!-- Begin Navigation bar -->
+<div class="wrapper">
+    <!-- Responsive side menu -->
+    <!--<input type="checkbox" id="show-menu">
+    <div id="fix-bar">
+        <div class="push">
+            <label class="responsive-menubar" for="show-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </div>-->
+    <!-- Responsive side menu -->
+    <input type="checkbox" id="show-menu">
+    <div class="header-wrapper navy">
+        <div id="fix-bar">
+            <div class="push">
+                <label class="responsive-menubar" for="show-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <nav class="nav-bar group" v-if="menuList.length">
+            <div class="col-2">
+                <span class="logo">Jay Lee</span>
+            </div>
+            <div class="col-7">
+                <ul class="menu-bar">
+                    <submenu-component
+                            v-for="(menu, idx) in menuList"
+                            :title="menu.title"
+                            :content="menu.content"
+                            :submenus="menu.submenus"
+                            :href="menu.href">
+                    </submenu-component>
+                </ul>
+            </div>
+            <div class="col-3">
+                <div class="nav-search">
+                    <span class="relative-container">
+                        <input type="text" placeholder=" " class="input-search"/>
+                        <span class="floating-placeholder"><!--<i class="fa fa-search"></i>--> Search</span>
+                    </span>
+                    <span class="btn btn-transparent btn-no-border btn-search"
+                            @click="search"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+            <!--<span class="logo pull-left">Jay Lee</span>
+            <div class="nav-search pull-right margin-right-50">
+                <input type="text" class="input input-rounded" placeholder="Search"/>
+            </div>
+            <ul class="menu-bar pull-right margin-right-50">
+                <submenu-component
+                        v-for="(menu, idx) in menuList"
+                        :title="menu.title"
+                        :content="menu.content"
+                        :submenus="menu.submenus"
+                        :href="menu.href">
+                </submenu-component>
+            </ul>-->
+        </nav>
+    </div>
+
+    <!-- Overlay -->
+    <label for="show-menu" class="content-overlay"></label>
+
+    <div id="content">
+        <!-- About -->
+        <section id="about" class="about contents">
+            <h2 class="section-heading">About</h2>
+            <div class="description">
+                <p>Hello, I am Jay Lee, a full-stack developer living currently in Seoul, South Korea. I am passionate about my profession
+                    and always looking for opportunities to grow, evolve and help those around me.
+                    Since I have mostly worked on proprietary software,
+                    I am fairly new when it comes to open source. During my free time, I sometimes write on my blog, so feel free to check it out!</p>
+            </div>
+        </section>
+        <!-- Projects AKA portfolio -->
+        <section id="projects" class="contents">
+            <h2 class="section-heading">Projects</h2>
+            <div class="description">
+                This contains a collection of simple projects that I worked on as a student at Bov Academy.
+            </div>
+            <div class="row portfolio-container">
+                <div class="col-3">
+                    <ul class="portfolio-navigation">
+                        <template v-for="(tab, index) in tabs">
+                            <li :class="{ 'tab-active white': isActive(index) }" @click="toggleTabs(index)">
+                                <a href="javascript:;">{{ tab.title }}</a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <div class="col-9">
+                    <template  v-for="(tab, index) in tabs">
+                        <div :class="['tab-content white', { 'tab-content-active': isActive(index) }]">
+                            <carousel-component
+                                    :carousels="tab.carousels"
+                                    :title="tab.title"
+                                    :description="tab.description"
+                                    :technologies="tab.technologies"
+                                    :demo-link="tab.demoLink"
+                                    :repository-link="tab.repositoryLink"></carousel-component>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <!-- Begin Skill section -->
+        <section id="skills" class="contents">
+            <h2 class="section-heading">Skills</h2>
+            <div class="description">
+                Here are the list of skills that I have acquired during my time as a student at Bov Academy
+            </div>
+            <div class="row skills-section">
+                <div class="col-12">
+                    <div class="bar bar-horizontal full-width">
+                        <div class="bar bar-inner bar-horizontal bar-red" :style="{ width: frontEndDevelopmentPercentage, 'z-index': 1 }">
+                            {{ frontEndDevelopmentPercentage }}
+                        </div>
+                        <div class="bar bar-inner bar-horizontal bar-blue" style="text-align: right; z-index: 0; width: 100%;">
+                            {{ backEndDevelopmentPercentage }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h3 class="chart-header text-center">Front-end Development</h3>
+                    <!-- Chart component -->
+                    <chart-component is-centered:="false" :skills="frontEndSkills"></chart-component>
+                </div>
+                <div class="col-6">
+                    <h3 class="chart-header text-center">Back-end Development</h3>
+                    <chart-component is-centered:="false" :skills="backEndSkills"></chart-component>
+                </div>
+                <div class="col-12">
+                    <h3 class="chart-header text-center">Other Skills</h3>
+                    <chart-component is-centered:="false" :skills="otherSkills"></chart-component>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="contents" id="contact">
+            <div class="contact-form-container">
+                <h2 class="section-heading">Keep in Touch</h2>
+                <div class="description">
+                    Note: Although this current contact form does not have a backend server powering it,
+                    my contact details are available on the side :)
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <div class="contact-form">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Full name</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="input input-full-width" name="name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Email Address</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="email" class="input input-full-width" name="email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Your message</label>
+                                </div>
+                                <div class="col-9">
+                                    <textarea class="input input-full-width" name="message"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-no-border btn-dark-blue input-full-width">
+                                        <i class="fa fa-send"></i>&nbsp;&nbsp;
+                                            Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="notification">
+                            <h2 class="section-heading">Find me on</h2>
+                            <div class="row">
+                                <div class="col-4">
+                                    <button class="btn btn-no-border input-full-width color-facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-no-border input-full-width color-github">
+                                        <i class="fa fa-github"></i>
+                                    </button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-no-border input-full-width color-linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <label class="label">
+                                        <i class="fa fa-envelope"></i>
+                                        Email:
+                                    </label>
+                                </div>
+                                <div class="col-7">
+                                    <label class="label">ljay189@gmail.com</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Modal -->
+        <div class="modal white" id="searchNotAvailable">
+            <h2 class="modal-header grey-blue">Search Temporarily Disabled
+                <span class="pull-right modal-close"><i class="fa fa-window-close"></i></span>
+            </h2>
+            <div class="modal-body">
+                <p>We apologize. This feature is currently disabled. Please try again later.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Modal blanket -->
+    <div class="modal-blanket"></div>
+    <!-- Go to top Btn -->
+    <div class="go-to-top text-center">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <footer class="footer navy">
+        <div class="text-center">@Jay Lee 2018</div>
+    </footer>
+</div>
+</body>
+<!-- Vue.js import -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+<!--
+=======================================================
+================== Vue.js Templates ===================
+=======================================================
+-->
+<!-- Carousel template -->
+<script type="text/x-template" id="carousel-template">
+    <div class="portfolio-tab-contents">
+        <h2 class="portfolio-tab-heading">{{ title }}</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <template v-for="(carousel, index) in carousels">
+                    <div :class="['carousel-item', {'active-carousel-item': isActive(index) } ]"
+                         :style="{ left: ((index - currentIndex) * 100) + '%'  }"
+                         v-html="carousel.content"></div>
+                </template>
+            </div>
+            <!-- Arrows pointing to left and right -->
+            <div class="arrow arrow-left" @click="moveBack"><i class="fa fa-arrow-left"></i></div>
+            <div class="arrow arrow-right" @click="moveForward"><i class="fa fa-arrow-right"></i></div>
+            <!-- Nav buttons -->
+            <div class="nav-buttons">
+                <template v-for="(carousel, index) in carousels">
+                    <div :class="['nav-btn', {'active': isActive(index) } ]" @click="move(index)"></div>
+                </template>
+            </div>
+        </div>
+        <!-- Begin content description -->
+        <h3 class="portfolio-item-technologies">TECHNOLOGIES: {{ technologies }}</h3>
+        <!-- A line to separate -->
+        <div class="line-separator"></div>
+        <!-- Description of Project -->
+        <div class="portfolio-item-description" v-html="description"></div>
+        <div class="portfolio-item-footer">
+            <a class="btn btn-dark-blue live-link " :href="demoLink"><i class="fa fa-play"></i>&nbsp;&nbsp;View Demo</a>
+            <a class="btn btn-red live-link" :href="repositoryLink"><i class="fa fa-github-square"></i>&nbsp;&nbsp;Link to GITHUB</a>
+        </div>
+    </div>
+</script>
+<!-- Recursive component -->
+<script type="text/x-template" id="submenu-template">
+    <li :class="{ active: isActive }" v-on:click.stop="toggleNav">
+        <a :href="href" :class="{'has-sub-menu': hasSubMenus}" v-html="title"></a>
+        <template v-if="hasSubMenus">
+            <ul class="sub-menu">
+                <template v-for="(menuItem, idx) in submenus">
+                    <submenu-component
+                            :title="menuItem.title"
+                            :content="menuItem.content"
+                            :submenus="menuItem.submenus"
+                            :href="menuItems.href">
+                    </submenu-component>
+                </template>
+            </ul>
+        </template>
+    </li>
+</script>
+<!-- Chart Component -->
+<script type="text/x-template" id="chart-template">
+    <div class="chart-container text-center">
+        <!-- Y axis labels -->
+        <div class="y-axis">
+            <div v-for="label in yAxisLabels" class="chart-y-axis-label" :style="{height: 250 / yAxisLabels.length + 'px'}">{{ label }}</div>
+        </div>
+        <div class="x-axis">
+            <!-- Bars -->
+            <template v-for="skill in skills">
+                <div class="x-axis-bar-outer">
+                    <div class="x-axis-bar" :style="{ 'background-color': skill.color, height: (skill.proficiency * (250 / yAxisLabels.length)) + 'px' }">
+                        <div class="chart-tooltip navy arrow-bottom" v-html="skill.tooltip"></div>
+                    </div>
+                    <!-- X axis labels -->
+                    <div class="x-axis-label">
+                        {{ skill.name }}
+                    </div>
+                </div>
+            </template>
+            <!-- x-axis-line -->
+            <div class="x-axis-line"></div>
+        </div>
+    </div>
+</script>
+<script src="resources/js/main.js"></script>
+</html>

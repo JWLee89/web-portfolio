@@ -1,0 +1,129 @@
+/**
+ * Portfolio-related CSS
+ * ==========================
+ */
+.portfolio-navigation {
+    margin: 0;
+}
+
+ul.portfolio-navigation li {
+    background-color: #fff;
+    cursor: pointer;
+    list-style: none;
+    opacity: 0.7;
+}
+
+.portfolio-navigation li:hover {
+    background-color: #3f3250;
+}
+
+.portfolio-navigation li:hover a {
+    color: #fff;
+}
+
+.portfolio-navigation li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.portfolio-navigation li {
+    padding: 15px;
+}
+
+.portfolio-navigation li a {
+    color: #444;
+}
+
+ul.portfolio-navigation li.tab-active {
+    border-left: 4px solid #ddd;
+    opacity: 1;
+}
+
+/*.portfolio-navigation li.tab-active a {
+    color: #fff;
+}*/
+
+.portfolio-tab-heading {
+    margin: 0;
+    padding: 17px 0;
+    color: #c0b380;
+}
+
+/* Set top position to -600px to simulate sliding animation */
+.tab-content {
+    display: none;
+    opacity: 0;
+    padding: 0 20px;
+    transition: all 0.6s ease-out;
+    z-index: 1;
+}
+
+.tab-content-active {
+    opacity: 1;
+    z-index: 2;
+    display: block;
+}
+
+.portfolio-item-technologies {
+    margin-top: 40px;
+}
+
+.portfolio-item-description {
+    font-size: 1.1em;
+    line-height: 1.65;
+}
+
+.portfolio-item-footer * {
+    color: #444;
+}
+
+.iframe-content {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+.live-link {
+    color: #fff;
+    position: relative;
+    padding: 12px 35px 12px 15px !important;
+}
+
+.live-link:hover {
+    padding-right: 25px;
+}
+
+.live-link:hover:after {
+    opacity: 1;
+    right:  10px;
+}
+
+.live-link:after {
+    content: '\00bb';
+    position: absolute;
+    color: #fff;
+    opacity: 0;
+    top: 8px;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.portfolio-item-footer {
+    padding: 30px 0;
+}
+
+.img {
+    height: auto;
+    width: 100%;
+}
+
+/**
+  * Media queries
+  * ========================
+  */
+@media screen and (max-width: 767px) {
+    ul.portfolio-navigation {
+        padding: 0;
+    }
+}
+
