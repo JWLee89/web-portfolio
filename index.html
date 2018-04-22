@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="resources/css/style.css" type="text/css">
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <script src="resources/js/main.js"></script>
+    <link rel="stylesheet" href="resources/css/portfolio.css">
+    <link rel="stylesheet" href="resources/css/skills.css">
+    <link rel="stylesheet" href="resources/css/contact.css">
+    <link rel="stylesheet" href="resources/css/header.css">
 </head>
 <body>
 <!-- Begin Navigation bar -->
@@ -34,6 +37,9 @@
                 </label>
             </div>
         </div>
+        <!-- Vertical navigation bar -->
+
+        <!-- Horizontal Navigation Bar -->
         <nav class="nav-bar group" v-if="menuList.length">
             <div class="col-2">
                 <span class="logo">Jay Lee</span>
@@ -59,19 +65,6 @@
                             @click="search"><i class="fa fa-search"></i></span>
                 </div>
             </div>
-            <!--<span class="logo pull-left">Jay Lee</span>
-            <div class="nav-search pull-right margin-right-50">
-                <input type="text" class="input input-rounded" placeholder="Search"/>
-            </div>
-            <ul class="menu-bar pull-right margin-right-50">
-                <submenu-component
-                        v-for="(menu, idx) in menuList"
-                        :title="menu.title"
-                        :content="menu.content"
-                        :submenus="menu.submenus"
-                        :href="menu.href">
-                </submenu-component>
-            </ul>-->
         </nav>
     </div>
 
@@ -162,13 +155,14 @@
                 </div>
                 <div class="row">
                     <div class="col-7">
-                        <div class="contact-form">
+                        <!-- Begin contact form -->
+                        <form class="contact-form">
                             <div class="row">
                                 <div class="col-3">
                                     <label class="label">Full name</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" class="input input-full-width" name="name">
+                                    <input type="text" class="input input-full-width" name="name" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -176,7 +170,7 @@
                                     <label class="label">Email Address</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="email" class="input input-full-width" name="email">
+                                    <input type="email" class="input input-full-width" name="email" required pattern="\w+\@\w+\.\w+">
                                 </div>
                             </div>
                             <div class="row">
@@ -184,7 +178,7 @@
                                     <label class="label">Your message</label>
                                 </div>
                                 <div class="col-9">
-                                    <textarea class="input input-full-width" name="message"></textarea>
+                                    <textarea class="input input-full-width" name="message" required></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -195,7 +189,8 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+                        <!-- End contact form -->
                     </div>
                     <div class="col-5">
                         <div class="notification">
