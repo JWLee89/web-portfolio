@@ -16,14 +16,6 @@
     padding: 8px;
 }
 
-.nav-bar {
-    margin: 0 auto;
-}
-
-.nav-search {
-    margin-top: 15px;
-}
-
 .input-search {
     background: transparent;
     border-left: none;
@@ -80,15 +72,25 @@
 
 .menu-bar li {
     background-color: #3c455c;
-    border-top: 3px solid transparent;
-    display: inline-block;
     list-style: none;
+    display: inline-block;
     margin: 0;
     padding: 10px 10px 10px 6px;
     position: relative;
 }
 
-.menu-bar > li:after, .menu-bar > li:after {
+/* Hide Copyright unless mobile */
+li.copyright {
+    display: none;
+    color: #fff;
+    font-style: italic;
+}
+
+.menu-bar li:not(.copyright) {
+    border-top: 3px solid transparent;
+}
+
+.menu-bar > li:not(.copyright):after, .menu-bar > li:not(.copyright):after {
     background-color: #9aacb8;
     bottom: 0;
     left: 0;
@@ -102,7 +104,7 @@
     width: 0;
 }
 
-/* Animation */
+/* Animation for the bar */
 .menu-bar > li.active:after, .menu-bar > li:hover:after {
     width: 100%;
 }
@@ -136,15 +138,15 @@
     background: red;
 }*/
 
-.menu-bar li:hover > a {
+.menu-bar li:not(.copyright):hover > a {
     color: #9aacb8;
 }
 
-.menu-bar li:hover > a.has-sub-menu:after {
+.menu-bar li:not(.copyright):hover > a.has-sub-menu:after {
     border-top: 5px solid #9aacb8;
 }
 
-.menu-bar li:hover > .sub-menu {
+.menu-bar li:not(.copyright):hover > .sub-menu {
     display: block;
 }
 
@@ -233,10 +235,6 @@ input#show-menu {
     transition: transform 0.4s linear;
 }
 
-.nav-bar {
-    transition: left 0.4s linear;
-}
-
 .content-overlay {
     background-color: rgba(0,0,0, 0.5);
     position: absolute;
@@ -254,12 +252,34 @@ input#show-menu {
     transition: width 0.5s ease;
 }
 
+/**
+ * Nav bar style
+ * ===================
+ */
+
+.nav-bar {
+    margin: 0 auto;
+    transition: left 0.4s linear;
+}
+
+.nav-search {
+    margin-top: 15px;
+}
+
 @media screen and (max-width: 960px) {
+    .nav-search {
+        display: none;
+    }
+
+    li.copyright {
+        display: block;
+    }
+
     .nav-bar {
         opacity: 0;
         height: 0;
         left: -200px;
-        top: 10px;
+        top: 0;
         z-index: 1000;
     }
 
@@ -307,6 +327,16 @@ input#show-menu {
         transform: translate3d(100px, 0, 0);
     }
 
+    /* Put space between vertical nav-bar and copyright text */
+    .logo {
+        line-height: 3.35;
+    }
+
+    /* Remove width animation for the bar */
+    .menu-bar > li.active:after, .menu-bar > li:hover:after {
+        width: auto;
+    }
+
     input#show-menu:checked ~ .header-wrapper .nav-bar{
         background: none;
     }
@@ -333,6 +363,7 @@ input#show-menu {
     .nav-bar:hover .menu-bar li span {
         position: relative;
         display: block;
+        transform: translate(0, 0);
         left: 0;
     }
 
@@ -347,12 +378,12 @@ input#show-menu {
     }
 
     .menu-bar li span {
-        transition: left 0.2s ease-in;
+        transition: transform 0.2s ease-in;
     }
 
     .menu-bar li span {
         position: absolute;
-        left: -200px;
+        transform: translate(-300px, 0);
     }
 
     .menu-bar > li:after, .menu-bar > li:after {

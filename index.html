@@ -6,28 +6,13 @@
     <link rel="stylesheet" href="resources/css/style.css" type="text/css">
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/portfolio.css">
-    <link rel="stylesheet" href="resources/css/skills.css">
-    <link rel="stylesheet" href="resources/css/contact.css">
-    <link rel="stylesheet" href="resources/css/header.css">
 </head>
 <body>
 <!-- Begin Navigation bar -->
 <div class="wrapper">
     <!-- Responsive side menu -->
-    <!--<input type="checkbox" id="show-menu">
-    <div id="fix-bar">
-        <div class="push">
-            <label class="responsive-menubar" for="show-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-        </div>
-    </div>-->
-    <!-- Responsive side menu -->
     <input type="checkbox" id="show-menu">
-    <div class="header-wrapper navy">
+    <div class="header-wrapper navy fixed-top">
         <div id="fix-bar">
             <div class="push">
                 <label class="responsive-menubar" for="show-menu">
@@ -37,8 +22,6 @@
                 </label>
             </div>
         </div>
-        <!-- Vertical navigation bar -->
-
         <!-- Horizontal Navigation Bar -->
         <nav class="nav-bar group" v-if="menuList.length">
             <div class="col-2">
@@ -53,6 +36,9 @@
                             :submenus="menu.submenus"
                             :href="menu.href">
                     </submenu-component>
+                    <li class="copyright">
+                        <span>© 2018 Jay Lee. All Rights Reserved.</span>
+                    </li>
                 </ul>
             </div>
             <div class="col-3">

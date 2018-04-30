@@ -384,7 +384,7 @@ section#skills {
     padding: 5px;
     position: fixed;
     right: 3%;
-    transition: opacity 0.4s ease-in;
+    transition: opacity, translate 0.4s ease-in;
     width: 30px;
 }
 

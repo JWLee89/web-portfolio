@@ -205,6 +205,7 @@
     }
 
     // Add 600 millisecond animation to scrollup event
+    // TODO: Work on the animation later on
     initScrollUpEvent(600);
 
     /**
@@ -220,10 +221,10 @@
         function stick() {
             if (window.pageYOffset >= sticky) {
                 toTopBtn.style.opacity = 1;
-                navbar.classList.add("fixed-top");
+               // navbar.classList.add("fixed-top");
             } else {
                 toTopBtn.style.opacity = 0;
-                navbar.classList.remove("fixed-top");
+              //  navbar.classList.remove("fixed-top");
             }
         }
     }
@@ -250,7 +251,7 @@
                         repositoryLink: "https://github.com/JWLee89/bov-web-components/tree/master/bov-css-project-1-calculator",
                         carousels: [
                             {
-                                content: "Another sample image right here"
+                                content: "<img src='resources/images/calculator.jpg' class='img' alt='calculator img'>"
                             },
                             {
                                 content: "<img src='resources/images/calculator.gif' alt='calculator' style='width: 100%; height: auto;'>"
@@ -286,10 +287,10 @@
                         repositoryLink: "https://github.com/JWLee89/bov-web-components/tree/master/bov-css-project-3-accordion",
                         carousels: [
                             {
-                                content: "<img class='img' src='resources/images/reactive-accordion.jpg'>"
+                                content: "<img class='img' src='resources/images/accordion-1.jpg'>"
                             },
                             {
-                                content: "<img class='img' src='resources/images/accordion.gif'>"
+                                content: "<img class='img' src='resources/images/accordion-2.jpg'>"
                             },
                             {
                                 content: "<iframe class='iframe-content' src='https://jwlee89.github.io/bov-web-components/bov-css-project-3-accordion/'></iframe>"
@@ -303,6 +304,9 @@
                         demoLink: "https://jwlee89.github.io/bov-web-components/reactive-image-gallery/",
                         repositoryLink: "https://github.com/JWLee89/bov-web-components/tree/master/reactive-image-gallery",
                         carousels: [
+                            {
+                                content: "<img class='img' src='resources/images/reactive-gallery.jpg'>"
+                            },
                             {
                                 content: "<iframe class='iframe-content' src='https://jwlee89.github.io/bov-web-components/reactive-image-gallery/'></iframe>"
                             },
@@ -353,7 +357,7 @@
             data: function() {
                 return {
                     yAxisLabels: [
-                        'Learning', 'Competent', 'Proficient', 'Expert'
+                        'Expert', 'Proficient', 'Competent', 'Learning'
                     ]
                 }
             },
@@ -379,7 +383,7 @@
                     {
                         name: "JavaScript",
                         color: '#FFAD41',
-                        proficiency: 4,
+                        proficiency: 3,
                         tooltip: "Been writing JavaScript for 3+ years. I can build my own library / framework should the need arise."
                     },
                     {
@@ -417,7 +421,7 @@
                     {
                         name: "Java",
                         color: '#38BAF0',
-                        proficiency: 4,
+                        proficiency: 3,
                         tooltip: "Been writing Java code for 3+ years."
                     },
                     {
@@ -443,7 +447,7 @@
                     {
                         name: "Public Speaking",
                         color: '#FFAD41',
-                        proficiency: 3,
+                        proficiency: 2,
                         tooltip: "Not the best at it, but I am improving."
                     },
                     {
@@ -456,7 +460,7 @@
                         name: "League of Legends",
                         color: '#69D12B',
                         proficiency: 2,
-                        tooltip: "Currently in Gold III on the Korean server"
+                        tooltip: "Currently Gold I (Soon to be Platinum) on the Korean server"
                     },
                     {
                         name: "Reading books",

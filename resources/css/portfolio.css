@@ -77,6 +77,12 @@ ul.portfolio-navigation li.tab-active {
     color: #444;
 }
 
+/* Used in carousel */
+.img {
+    width: 100%;
+    height: auto;
+}
+
 .iframe-content {
     border: none;
     height: 100%;
