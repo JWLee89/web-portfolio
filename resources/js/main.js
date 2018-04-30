@@ -457,10 +457,10 @@
                         tooltip: "I am not a natural, but my writing has steadily improved thanks to my blog."
                     },
                     {
-                        name: "League of Legends",
+                        name: "Settlers of Catan",
                         color: '#69D12B',
                         proficiency: 2,
-                        tooltip: "Currently Gold I (Soon to be Platinum) on the Korean server"
+                        tooltip: "A leisurely player of Settlers. I get fairly competitive when playing!"
                     },
                     {
                         name: "Reading books",
