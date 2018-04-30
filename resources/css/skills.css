@@ -168,14 +168,23 @@
         width: 150px;
         font-size: 0.8em;
     }
-    .chart-y-axis-label, .y-axis {
-        width: 60px;
-    }
 }
 
 @media screen and (max-width: 420px) {
     .x-axis-bar {
         width: 20px;
+    }
+    .chart-y-axis-label, .y-axis {
+        width: 70px;
+    }
+    .x-axis-bar {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .chart-y-axis-label, .y-axis {
+        width: 50px;
     }
 }
 

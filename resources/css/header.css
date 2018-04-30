@@ -237,7 +237,7 @@ input#show-menu {
 
 .content-overlay {
     background-color: rgba(0,0,0, 0.5);
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 0;
     width: 100%;
@@ -325,6 +325,21 @@ input#show-menu {
     /* Check event */
     input#show-menu:checked ~ .header-wrapper #fix-bar > .push {
         transform: translate3d(100px, 0, 0);
+    }
+
+    /* Shift content to the left */
+    input#show-menu:checked ~ .content-overlay {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    .label {
+        font-size: 1em !important;
+    }
+
+    /* Some breathing space for the copyright text on the vertical menu*/
+    li.copyright {
+        margin-top: 35px;
     }
 
     /* Put space between vertical nav-bar and copyright text */
