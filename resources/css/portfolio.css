@@ -133,3 +133,30 @@ ul.portfolio-navigation li.tab-active {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .carousel-container {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .carousel-container {
+        height: 250px;
+    }
+    .nav-btn {
+        width: 15px;
+        height: 15px;
+    }
+    .arrow {
+        height: 25px !important;
+        padding-left: 6px !important;
+        padding-top: 5px !important;
+        width: 25px !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .carousel-container {
+        height: 200px;
+    }
+}
